@@ -1,0 +1,13 @@
+[Unit]
+Description=Door Check
+After=network.target
+
+[Service]
+Type=simple
+User=pi0
+WorkingDirectory=/home/pi0/Documents
+ExecStart=/usr/bin/python /home/pi0/Documents/DoorCheck.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
