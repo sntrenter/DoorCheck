@@ -31,7 +31,7 @@ async def on_message(message):
         if os.path.exists("door.jpg"):
             os.remove("door.jpg")
         
-        os.system("raspistill -t 1 -o door.jpg")
+        os.system("raspistill -t 1 -ex auto -br 80 -co 95 -ISO 800 -ev 5 -o door.jpg")
 
         if os.path.exists("door.jpg"):
             with open("door.jpg", "rb") as f:
