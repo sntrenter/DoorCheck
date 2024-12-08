@@ -1,6 +1,7 @@
 [Unit]
-Description=Door Check
+Description=Door Check Service
 After=network.target
+OnFailure=reboot.target
 
 [Service]
 Type=simple
@@ -8,6 +9,9 @@ User=pi0
 WorkingDirectory=/home/pi0/Documents
 ExecStart=/usr/bin/python /home/pi0/Documents/DoorCheck.py
 Restart=always
+RestartSec=30
+StartLimitInterval=10min
+StartLimitBurst=5
 
 [Install]
 WantedBy=multi-user.target
